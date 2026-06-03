@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analizador de Números</title>
+
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+        background:#f4f6f9;
+        padding:30px;
+    }
+
+    .contenedor{
+        max-width:900px;
+        margin:auto;
+    }
+
+    h1{
+        text-align:center;
+        margin-bottom:20px;
+    }
+
+    form{
+        background:white;
+        padding:20px;
+        border-radius:10px;
+        box-shadow:0 2px 10px rgba(0,0,0,.1);
+        margin-bottom:20px;
+    }
+
+    input{
+        width:100%;
+        padding:12px;
+        margin:10px 0;
+        border:1px solid #ccc;
+        border-radius:5px;
+    }
+
+    button{
+        width:100%;
+        padding:12px;
+        border:none;
+        border-radius:5px;
+        cursor:pointer;
+        font-size:16px;
+    }
+
+    .resultados{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+        gap:15px;
+    }
+
+    .card{
+        background:white;
+        padding:15px;
+        border-radius:10px;
+        box-shadow:0 2px 10px rgba(0,0,0,.1);
+    }
+
+    .card h3{
+        margin-bottom:10px;
+    }
+
+    .card p{
+        word-wrap:break-word;
+    }
+</style>
+
+
+</head>
+<body>
+
+<div class="contenedor">
+
+
+<h1>Analizador de Números</h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label>Ingrese números separados por comas:</label>
+
+    <input
+        type="text"
+        name="numeros"
+        placeholder="Ejemplo: 10,20,30,40">
+
+    <button type="submit">Analizar</button>
+</form>
+
+<div class="resultados">
+
+    <div class="card">
+        <h3>Números ingresados</h3>
+        <p>{{ numeros }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Suma</h3>
+        <p>{{ suma }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Promedio</h3>
+        <p>{{ promedio }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Número mayor</h3>
+        <p>{{ mayor }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Número menor</h3>
+        <p>{{ menor }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Números pares</h3>
+        <p>{{ pares }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Números impares</h3>
+        <p>{{ impares }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Elevados al cuadrado</h3>
+        <p>{{ cuadrados }}</p>
+    </div>
+
+    <div class="card">
+        <h3>Múltiplos de 3</h3>
+        <p>{{ multiplosDe3 }}</p>
+    </div>
+
+</div>
+
+
+</div>
+
+</body>
+</html>
